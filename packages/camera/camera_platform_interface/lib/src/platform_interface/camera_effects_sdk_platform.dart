@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:math';
 
@@ -303,5 +302,9 @@ abstract class CameraEffectsSDKPlatform extends PlatformInterface {
 
   Future<void> clearBackground(int cameraId) {
     throw UnimplementedError('clearBackground() is not implemented.');
+  }
+
+  Future<void> initEffectsSDK(int cameraId, String path) {
+    throw UnimplementedError('initEffectsSDK() is not implemented.');
   }
 }

@@ -588,6 +588,7 @@ class MethodChannelEffectsSDKCamera extends CameraEffectsSDKPlatform {
     return (call.arguments as Map<Object?, Object?>).cast<String, Object?>();
   }
 
+  @override
   Future<void> setBlur(int cameraId, double blurPower) async {
     await _channel.invokeMethod<double>(
       'setBlur',
@@ -598,6 +599,7 @@ class MethodChannelEffectsSDKCamera extends CameraEffectsSDKPlatform {
     );
   }
 
+  @override
   Future<void> clearBlur(int cameraId) async {
     await _channel.invokeMethod<double>(
       'clearBlur',
@@ -607,16 +609,18 @@ class MethodChannelEffectsSDKCamera extends CameraEffectsSDKPlatform {
     );
   }
 
+  @override
   Future<void> setBeautificationLevel(int cameraId, double level) async {
     await _channel.invokeMethod<double>(
       'setBeautificationLevel',
       <String, dynamic>{
         'cameraId': cameraId,
-        'blurPower': level,
+        'beautificationLevel': level,
       },
     );
   }
 
+  @override
   Future<void> clearBeautification(int cameraId) async {
     await _channel.invokeMethod<double>(
       'clearBeautification',
@@ -626,9 +630,10 @@ class MethodChannelEffectsSDKCamera extends CameraEffectsSDKPlatform {
     );
   }
 
+  @override
   Future<void> setBackgroundImage(int cameraId, String url) async {
     await _channel.invokeMethod<double>(
-      'setDescriptionWhileRecording',
+      'setBackgroundImage',
       <String, dynamic>{
         'cameraId': cameraId,
         'backgroundImageUrl': url,
@@ -636,6 +641,7 @@ class MethodChannelEffectsSDKCamera extends CameraEffectsSDKPlatform {
     );
   }
 
+  @override
   Future<void> setBackgroundColor(int cameraId, int color) async {
     await _channel.invokeMethod<double>(
       'setBackgroundColor',
@@ -646,11 +652,23 @@ class MethodChannelEffectsSDKCamera extends CameraEffectsSDKPlatform {
     );
   }
 
+  @override
   Future<void> clearBackground(int cameraId) async {
     await _channel.invokeMethod<double>(
-      'setDescriptionWhileRecording',
+      'clearBackground',
       <String, dynamic>{
         'cameraId': cameraId,
+      },
+    );
+  }
+
+  @override
+  Future<void> initEffectsSDK(int cameraId, String path) async {
+    await _channel.invokeMethod<double>(
+      'initEffectsSDK',
+      <String, dynamic>{
+        'cameraId': cameraId,
+        'effectsSDKPath': path,
       },
     );
   }
